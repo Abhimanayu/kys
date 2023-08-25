@@ -1,0 +1,111 @@
+<app-table [books]="books" [apiEnpoint]="apiEnpoint" [noOfPage]="noOfPage" [pageNumber]="pageNumber" [response]="response"  [headers]="headers" [totalRecord]="totalRecord" (pageAction)="getPaginatedData($event)" (searchAction)="search($event)" (deleteAction)="setSelected($event)"></app-table>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="addNewBooks">
+              <div class="m-3">
+                  <h3>Plan Details</h3>
+              </div>
+              <div class="mb-3">
+                  Name
+                  <input type="text" class="form-control" id="recipient-name" formControlName="name">
+              </div>
+              <div class="mb-3">
+                  Duration
+                  <input type="text" class="form-control" id="recipient-name" formControlName="duration">
+              </div>
+              <div class="mb-3">
+                  Book
+                  <input type="text" class="form-control" id="recipient-name" formControlName="books">
+              </div>
+              <div class="mb-3">
+                  Price
+                  <input type="text" class="form-control" id="recipient-name" formControlName="price">
+              </div>
+              <div class="mb-3">
+                  Description
+                  <input type="address" class="form-control" id="recipient-name" formControlName="description">
+              </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="addNew()">Save</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="addNewBooks">
+                  <div class="m-3">
+                      <h3>Plan Details</h3>
+                  </div>
+                  <div class="mb-3">
+                      Name
+                      <input type="text" class="form-control" id="recipient-name" formControlName="name">
+                  </div>
+                  <div class="mb-3">
+                      Duration
+                      <input type="text" class="form-control" id="recipient-name" formControlName="duration">
+                  </div>
+                  <div class="mb-3">
+                      Book
+                      <input type="text" class="form-control" id="recipient-name" formControlName="books">
+                  </div>
+                  <div class="mb-3">
+                      Price
+                      <input type="text" class="form-control" id="recipient-name" formControlName="price">
+                  </div>
+                  <div class="mb-3">
+                      Description
+                      <input type="address" class="form-control" id="recipient-name" formControlName="description">
+                  </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="update()">Save</button>
+
+          </div>
+      </div>''
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Conform  you wnat to delete
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="delete()" >YES</button>
+          </div>
+      </div>
+  </div>
+</div>

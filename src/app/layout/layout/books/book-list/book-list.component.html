@@ -1,0 +1,111 @@
+
+<app-table [books]="books" [apiEnpoint]="apiEnpoint" [noOfPage]="noOfPage" [pageNumber]="pageNumber" [response]="response"  [headers]="headers" [totalRecord]="totalRecord" (pageAction)="getPaginatedData($event)" (searchAction)="search($event)" (deleteAction)="setSelected($event)"></app-table>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="addNewBooks">
+                  <div class="m-3">
+                      <h3>Book Details</h3>
+                  </div>
+                  <div class="mb-3">
+                      Name :
+                      <input type="text" class="form-control" id="recipient-name" formControlName="bookName">
+                  </div>
+                  <div class="mb-3">
+                      Price :
+                      <input type="text" class="form-control" id="recipient-name" formControlName="pricing">
+                  </div>
+                  <div class="mb-3">
+                      Category:
+                      <select class="form-control" formControlName="category">
+                          <option value="Nun" disabled selected>choose</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                      </select>
+                  </div>
+                  <div class="form-Group row">
+                      image:<input class="form-control" type="file" formControlName="attachment" (change)="onImageSelection($event)" >
+
+                  </div>
+
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="addNew()">Add</button>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="addNewBooks">
+                  <div class="m-3">
+                      <h3>Book Details</h3>
+                  </div>
+                  <div class="mb-3">
+                      Name :
+                      <input type="text" class="form-control" id="recipient-name" formControlName="bookName">
+                  </div>
+                  <div class="mb-3">
+                      Price :
+                      <input type="text" class="form-control" id="recipient-name" formControlName="pricing">
+                  </div>
+                  <div class="mb-3">
+                      Category:
+                      <select class="form-control" formControlName="category">
+                          <option value="Nun" disabled selected>choose</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                      </select>
+                  </div>
+                  <div class="form-Group row">
+                      image:<input class="form-control" type="file" formControlName="attachment" (change)="onImageSelection($event)" >
+
+                  </div>
+
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="update()">Edit</button>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Conform  you wnat to delete
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="delete()" >YES</button>
+          </div>
+      </div>
+  </div>
+</div>

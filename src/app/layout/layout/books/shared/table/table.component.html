@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="row">
+    Manage Books
+  </div>
+  <div class="row" style="background: linear-gradient(133.87deg,#dc3545 0%,#1d4fa2 50%,#c5198c 100%)">
+    <div class="col-2">
+      <input type="search" placeholder="Search..." #filter (keyup)="search(filter.value)">
+    </div>
+    <div class="col-1 offset-9">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New</button>
+    </div>
+  </div>
+</div>
+<table class="container-fluid">
+  <thead>
+    <tr>
+      <th  *ngFor="let head of headers">
+        {{head.name}}
+      </th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor="let item of books,let i=index">
+    <td *ngFor="let head of headers; let i = index ">
+      <span *ngIf="head.key==='image'"><img src="{{item[head.key]}}" alt="please wait for img"
+              height="67px" width="100px"></span>
+      <span *ngIf="head.key!=='image'">{{item[head.key]}}</span>
+  </td>
+     <td>
+      <button class="btn btn-primary" style="border-radius: 50%;" data-bs-toggle="modal" data-bs-target="#update" (click)="delete(item)"><i class="fa-solid fa-pen"></i></button>
+      <button class="btn btn-danger"  style="border-radius: 50%;" data-bs-toggle="modal" data-bs-target="#delete" (click)="delete(item)"><i class="fa-regular fa-trash-can"></i></button>
+    </td>
+   </tr>
+  </tbody>
+</table>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+      <li class="page-item"><a class="page-link"  (click)="previous()">Previous</a></li>
+      <li class="page-item" (click)="getPaginatedData(page)" *ngFor="let page of noOfPage"><a class="page-link">{{page}}</a></li>
+      <li class="page-item"><a class="page-link"  (click)="next()">Next</a></li>
+  </ul>
+</nav>
